@@ -70,8 +70,16 @@ public class ManufacturerService {
         if(manufacturerOptional.isEmpty())
             throw new EntityNotFoundException(String.format("Entity %d not found!", dto.id()));
 
+        manufacturerOptional
+            .ifPresent(manufacturer -> mapAndSaveManufacturer(dto, manufacturer));
+
         Manufacturer saved = repository.save(mapper.toEntity(dto));
         return mapper.toResponse(saved);
+    }
+
+    private void mapAndSaveManufacturer(ManufacturerDTO dto, Manufacturer manufacturer) {
+        mapper.updateManufacturerFromDto(dto, manufacturer);
+        repository.save(manufacturer);
     }
 
     @Transactional
