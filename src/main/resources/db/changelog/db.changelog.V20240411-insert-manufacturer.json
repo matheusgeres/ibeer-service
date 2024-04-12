@@ -1,0 +1,160 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V20240411-05",
+        "author": "matheus.geres",
+        "changes": [
+          {
+            "insert": {
+              "tableName": "manufacturer",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Amstel"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "birthplace",
+                    "value": "Irlanda"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "active",
+                    "valueBoolean": false
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "value": "now()"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "value": "now()"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "manufacturer",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Ambev"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "birthplace",
+                    "value": "Brasil"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "active",
+                    "valueBoolean": false
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "value": "now()"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "value": "now()"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "manufacturer",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Cervejaria Colorado"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "birthplace",
+                    "value": "Brasil"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "active",
+                    "valueBoolean": true
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "value": "now()"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "value": "now()"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "manufacturer",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Cervejaria Baden Baden"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "birthplace",
+                    "value": "Brasil"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "active",
+                    "valueBoolean": true
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "value": "now()"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "value": "now()"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

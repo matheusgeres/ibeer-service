@@ -1,0 +1,40 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V20240411-06",
+        "author": "matheus.geres",
+        "changes": [
+          {
+            "update": {
+              "tableName": "manufacturer",
+              "where": "id=1",
+              "columns": [
+                {
+                  "column": {
+                    "name": "active",
+                    "valueBoolean": true
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "update": {
+              "tableName": "manufacturer",
+              "where": "id=2",
+              "columns": [
+                {
+                  "column": {
+                    "name": "active",
+                    "valueBoolean": true
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
