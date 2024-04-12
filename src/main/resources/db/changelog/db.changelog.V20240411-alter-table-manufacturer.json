@@ -1,0 +1,28 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V20240411-04",
+        "author": "matheus.geres",
+        "changes": [
+          {
+            "addColumn": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "active",
+                    "type": "boolean",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ],
+              "tableName": "manufacturer"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

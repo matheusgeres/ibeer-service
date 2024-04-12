@@ -21,10 +21,16 @@ public interface ManufacturerRepository extends JpaRepository<Manufacturer, Long
     @EntityGraph(attributePaths = {"beers"})
     Page<Manufacturer> findAll(@NonNull Pageable pageable);
 
+    @NonNull
+    @EntityGraph(attributePaths = {"beers"})
+    Page<Manufacturer> findAllByActive(@NonNull Pageable pageable, @Param("active") boolean active);
+
     @Query("SELECT id from Manufacturer WHERE name = :name")
     Optional<Long> findIdByName(@Param("name") String name);
 
     @Query("SELECT id from Manufacturer WHERE id = :id AND name = :name ")
     Optional<Long> findIdByNameAndIdNot(@Param("name") String name, @Param("id") long id);
+
+
 }
 

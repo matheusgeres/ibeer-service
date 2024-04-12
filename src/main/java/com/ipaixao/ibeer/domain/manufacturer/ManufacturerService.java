@@ -48,6 +48,11 @@ public class ManufacturerService {
     }
 
     @Transactional(readOnly = true)
+    public Page<ManufacturerResponse> getAllActive(Pageable pageable) {
+        return repository.findAllByActive(pageable, true).map(mapper::toResponse);
+    }
+
+    @Transactional(readOnly = true)
     public ManufacturerResponse getById(long id) {
         return repository.findById(id)
                 .map(mapper::toResponse)
@@ -60,7 +65,20 @@ public class ManufacturerService {
 
     @Transactional
     public ManufacturerResponse update(ManufacturerDTO dto) {
-        return create(dto);
+        var manufacturerOptional = repository.findById(dto.id());
+
+        manufacturerOptional
+                .ifPresent(manufacturer -> mapAndSaveManufacturer(dto, manufacturer));
+
+        if(manufacturerOptional.isEmpty())
+            throw new EntityNotFoundException("Entity not found!");
+
+        return mapper.toResponse(manufacturerOptional.get());
+    }
+
+    private void mapAndSaveManufacturer(ManufacturerDTO dto, Manufacturer manufacturer) {
+        mapper.updateManufacturerFromDto(dto, manufacturer);
+        repository.save(manufacturer);
     }
 
     @Transactional

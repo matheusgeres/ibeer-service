@@ -14,7 +14,7 @@ spring:
     location: classpath:static/banner.txt
 
   datasource:
-    url: jdbc:mariadb://localhost:3306/ibeer_db?allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mariadb://localhost:3306/ibeer_db_hom?allowPublicKeyRetrieval=true&useSSL=false
     driverClassName: org.mariadb.jdbc.Driver
     username: ${MYSQL_USER:ibeer}
     password: ${MYSQL_PASSWORD:Bk55yc1u0eiqga6e}

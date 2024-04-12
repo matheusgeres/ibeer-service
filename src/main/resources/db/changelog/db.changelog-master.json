@@ -2,6 +2,12 @@
   "databaseChangeLog": [
     {
       "include": {
+        "file": "db/changelog/db.changelog.V20240411-alter-table-manufacturer.json",
+        "relativeToChangelogFile": false
+      }
+    },
+    {
+      "include": {
         "file": "db/changelog/db.changelog.V20200518-creates-hibernate-sequence.json",
         "relativeToChangelogFile": false
       }

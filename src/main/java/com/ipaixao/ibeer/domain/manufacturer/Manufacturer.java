@@ -31,6 +31,9 @@ public class Manufacturer {
     @Column(nullable = false)
     private String birthplace;
 
+    @Column(nullable = false)
+    private boolean active;
+
     @Builder.Default
     @ToString.Exclude
     @OneToMany(mappedBy = "manufacturer", orphanRemoval = true, cascade = {REFRESH, DETACH})

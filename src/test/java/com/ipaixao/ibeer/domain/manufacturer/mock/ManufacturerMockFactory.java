@@ -76,11 +76,11 @@ public record ManufacturerMockFactory() {
     }
 
     public static ManufacturerDTO newManufacturerDTO() {
-        return new ManufacturerDTO(null, manufacturer().getName(), manufacturer().getBirthplace());
+        return new ManufacturerDTO(null, manufacturer().getName(), manufacturer().getBirthplace(), true);
     }
 
     public static ManufacturerDTO manufacturerDTO() {
-        return new ManufacturerDTO(manufacturer().getId(), manufacturer().getName(), manufacturer().getBirthplace());
+        return new ManufacturerDTO(manufacturer().getId(), manufacturer().getName(), manufacturer().getBirthplace(), true);
     }
 
     public static ManufacturerResponse manufacturerResponse() {

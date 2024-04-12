@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
+@Slf4j
 @RestController
 @RequestMapping("/manufacturers")
 @Tag(
@@ -33,7 +35,7 @@ public record ManufacturerResource(ManufacturerService service) {
     @Operation(summary ="Gets all Manufacturers", method = "GET")
     public ResponseEntity<Page<ManufacturerResponse>> getAll(@RequestParam(name = "page", defaultValue = "0") int page,
                                                              @RequestParam(name = "size", defaultValue = "10") int size) {
-        return ResponseEntity.ok(service.getAll(PageRequest.of(page, size)));
+        return ResponseEntity.ok(service.getAllActive(PageRequest.of(page, size)));
     }
 
     @GetMapping("/{id}")
@@ -45,6 +47,7 @@ public record ManufacturerResource(ManufacturerService service) {
     @PutMapping
     @Operation(summary = "Updates a Manufacturer", method = "PUT")
     public ResponseEntity<ManufacturerResponse> update(@Valid @RequestBody ManufacturerDTO dto) {
+        log.info("Updating Manufacturer: {}", dto);
         return ResponseEntity.ok(service.update(dto));
     }
 

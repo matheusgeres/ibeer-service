@@ -3,6 +3,7 @@ package com.ipaixao.ibeer.interfaces.incomming.manufacturer.dto;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Schema(
         name = "Manufacturer Request",
@@ -10,4 +11,5 @@ import jakarta.validation.constraints.NotBlank;
 )
 public record ManufacturerDTO(@Hidden Long id,
                               @NotBlank(message = "{required_field}") String name,
-                              @NotBlank(message = "{required_field}") String birthplace) {}
+                              @NotBlank(message = "{required_field}") String birthplace,
+                              @NotNull(message = "{required_field}") boolean active) {}
