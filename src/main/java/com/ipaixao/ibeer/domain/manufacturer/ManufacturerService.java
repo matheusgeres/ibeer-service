@@ -67,18 +67,11 @@ public class ManufacturerService {
     public ManufacturerResponse update(ManufacturerDTO dto) {
         var manufacturerOptional = repository.findById(dto.id());
 
-        manufacturerOptional
-                .ifPresent(manufacturer -> mapAndSaveManufacturer(dto, manufacturer));
-
         if(manufacturerOptional.isEmpty())
-            throw new EntityNotFoundException("Entity not found!");
+            throw new EntityNotFoundException(String.format("Entity %d not found!", dto.id()));
 
-        return mapper.toResponse(manufacturerOptional.get());
-    }
-
-    private void mapAndSaveManufacturer(ManufacturerDTO dto, Manufacturer manufacturer) {
-        mapper.updateManufacturerFromDto(dto, manufacturer);
-        repository.save(manufacturer);
+        Manufacturer saved = repository.save(mapper.toEntity(dto));
+        return mapper.toResponse(saved);
     }
 
     @Transactional
