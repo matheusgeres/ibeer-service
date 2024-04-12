@@ -15,6 +15,12 @@
                     "name": "active",
                     "valueBoolean": true
                   }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "value": "now()"
+                  }
                 }
               ]
             }
@@ -28,6 +34,12 @@
                   "column": {
                     "name": "active",
                     "valueBoolean": true
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "value": "now()"
                   }
                 }
               ]
